@@ -332,7 +332,7 @@
                     <a href="#contact">Contact</a>
                 </nav>
                 <div class="dark-mode-toggle">
-                    <span class="mode-icon" id="modeIcon">🌙</span>
+                    <span class="mode-icon" id="modeIcon">☀️</span>
                     <div class="toggle-switch" id="darkModeToggle">
                         <div class="toggle-slider"></div>
                     </div>
@@ -432,7 +432,7 @@
         if (localStorage.getItem('darkMode') === 'enabled') {
             body.classList.add('dark-mode');
             darkModeToggle.classList.add('active');
-            modeIcon.textContent = '☀️';
+            modeIcon.textContent = '🌙';
         }
 
         // Toggle dark mode
@@ -442,10 +442,10 @@
             
             // Update icon
             if (body.classList.contains('dark-mode')) {
-                modeIcon.textContent = '☀️';
+                modeIcon.textContent = '🌙';
                 localStorage.setItem('darkMode', 'enabled');
             } else {
-                modeIcon.textContent = '🌙';
+                modeIcon.textContent = '☀️';
                 localStorage.setItem('darkMode', 'disabled');
             }
         });
