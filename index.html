@@ -16,6 +16,13 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #fff;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
         }
 
         header {
@@ -26,6 +33,11 @@
             top: 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 100;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode header {
+            background: #1a1a2e;
         }
 
         header .container {
@@ -41,6 +53,12 @@
             font-size: 1.8rem;
         }
 
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -52,6 +70,41 @@
             color: #3498db;
         }
 
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #3498db;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(26px);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -61,6 +114,7 @@
         section {
             padding: 4rem 0;
             scroll-margin-top: 5rem;
+            transition: background 0.3s;
         }
 
         h2 {
@@ -70,10 +124,19 @@
             border-bottom: 3px solid #3498db;
             padding-bottom: 0.5rem;
             display: inline-block;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode h2 {
+            color: #3498db;
         }
 
         #about {
             background: #f8f9fa;
+        }
+
+        body.dark-mode #about {
+            background: #242424;
         }
 
         .about-content {
@@ -98,7 +161,7 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
             cursor: pointer;
             position: relative;
             text-decoration: none;
@@ -106,20 +169,39 @@
             display: block;
         }
 
+        body.dark-mode .project-card {
+            background: #2a2a2a;
+            border-color: #404040;
+        }
+
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .project-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
 
         .project-card h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
             font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .project-card h3 {
+            color: #3498db;
         }
 
         .project-card p {
             color: #666;
             margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .project-card p {
+            color: #b0b0b0;
         }
 
         .project-tags {
@@ -135,6 +217,12 @@
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.85rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .tag {
+            background: #1e3a5f;
+            color: #64b5f6;
         }
 
         .see-more {
@@ -146,11 +234,15 @@
             margin-top: 1rem;
             display: inline-block;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, background 0.3s;
         }
 
         .project-card:hover .see-more {
             opacity: 1;
+        }
+
+        body.dark-mode .see-more {
+            background: #2980b9;
         }
         
         .resume-button {
@@ -173,6 +265,10 @@
             text-align: center;
         }
 
+        body.dark-mode #contact {
+            background: #242424;
+        }
+
         .contact-info {
             margin-top: 2rem;
             font-size: 1.1rem;
@@ -181,10 +277,15 @@
         .contact-info a {
             color: #3498db;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        body.dark-mode .contact-info a {
+            color: #64b5f6;
         }
 
         .contact-links {
@@ -201,10 +302,20 @@
             text-align: center;
             padding: 2rem 0;
             margin-top: 4rem;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode footer {
+            background: #1a1a2e;
         }
 
         @media (max-width: 768px) {
             header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-wrapper {
                 flex-direction: column;
                 gap: 1rem;
             }
@@ -219,11 +330,19 @@
     <header>
         <div class="container">
             <h1>Declan Smith</h1>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
+            <div class="nav-wrapper">
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="dark-mode-toggle">
+                    <span>🌙</span>
+                    <div class="toggle-switch" id="darkModeToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -308,5 +427,29 @@
         <div class="container">
         </div>
     </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.classList.add('active');
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            darkModeToggle.classList.toggle('active');
+            
+            // Save preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
 </body>
 </html>
