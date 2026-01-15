@@ -28,7 +28,7 @@
         header {
             background: #2c3e50;
             color: white;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
@@ -42,7 +42,7 @@
         }
 
         header h1 {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
         }
 
         .nav-wrapper {
@@ -279,12 +279,49 @@
             background: #2980b9;
         }
 
+        #contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #90caf9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        footer h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -400,9 +437,25 @@
         </div>
     </div>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
-            <p>&copy; 2026 Declan Smith. All rights reserved.</p>
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-links">
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:declan.smith@unb.ca">declan.smith@unb.ca</a>
+                    </div>
+                    <div>
+                        <strong>LinkedIn:</strong><br>
+                        <a href="https://linkedin.com/in/declan-c-smith" target="_blank">linkedin.com/in/declan-c-smith</a>
+                    </div>
+                    <div>
+                        <strong>GitHub:</strong><br>
+                        <a href="https://github.com/declan-smith" target="_blank">github.com/declan-smith</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
