@@ -262,37 +262,33 @@
         }
 
         #contact {
+            background: #2c3e50;
+            color: white;
             text-align: center;
-        }
-
-        body.dark-mode #contact {
-            background: #242424;
+            padding: 3rem 0;
+            margin-top: 0;
         }
 
         .contact-info {
-            margin-top: 2rem;
-            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
         }
 
         .contact-info a {
-            color: #3498db;
+            color: #64b5f6;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         .contact-info a:hover {
             text-decoration: underline;
-        }
-
-        body.dark-mode .contact-info a {
-            color: #64b5f6;
+            color: #90caf9;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 3rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -300,8 +296,14 @@
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        footer h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -329,7 +331,6 @@
                 <nav>
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
                 </nav>
                 <div class="dark-mode-toggle">
                     <span class="mode-icon" id="modeIcon">🔆</span>
@@ -395,7 +396,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <footer id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-info">
@@ -414,11 +415,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
         </div>
     </footer>
 
