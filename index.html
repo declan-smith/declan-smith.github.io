@@ -160,10 +160,9 @@
             background: white;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 2rem;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
             cursor: pointer;
-            position: relative;
             text-decoration: none;
             color: inherit;
             display: block;
@@ -181,6 +180,27 @@
 
         body.dark-mode .project-card:hover {
             box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .project-image {
+            background: #1a1a1a;
+            color: #666;
+        }
+
+        .project-content {
+            padding: 1.5rem;
         }
 
         .project-card h3 {
@@ -362,45 +382,57 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <a href="project1.html" class="project-card">
-                    <h3>Mechatronics Application</h3>
-                    <p>Multi object collection, sorting and storage enabled transporter. With Mecanum drive, QEI, and PID controls.</p>
-                    <div class="project-tags">
-                        <span class="tag">Fusion360</span>
-                        <span class="tag">Embedded C++</span>
+                    <div class="project-image">Project Image 1</div>
+                    <div class="project-content">
+                        <h3>Mechatronics Application</h3>
+                        <p>Multi object collection, sorting and storage enabled transporter. With Mecanum drive, QEI, and PID controls.</p>
+                        <div class="project-tags">
+                            <span class="tag">Fusion360</span>
+                            <span class="tag">Embedded C++</span>
+                        </div>
+                        <span class="see-more">See More →</span>
                     </div>
-                    <span class="see-more">See More →</span>
                 </a>
 
                 <a href="construction.html" class="project-card">
-                    <h3>Introduction to Mechatronics</h3>
-                    <p>Object collection and autonomous colour based sorting. Implementing compact and efficient design with sophisticated control algorithms for a high performance robot.</p>
-                    <div class="project-tags">
-                        <span class="tag">Fusion360</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">JavaScript</span>
+                    <div class="project-image">Project Image 2</div>
+                    <div class="project-content">
+                        <h3>Introduction to Mechatronics</h3>
+                        <p>Object collection and autonomous colour based sorting. Implementing compact and efficient design with sophisticated control algorithms for a high performance robot.</p>
+                        <div class="project-tags">
+                            <span class="tag">Fusion360</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <span class="see-more">See More →</span>
                     </div>
-                    <span class="see-more">See More →</span>
                 </a>
 
                 <a href="construction.html" class="project-card">
-                    <h3>Wall Following and Collision Detecting Rover</h3>
-                    <p>Autonomous driving system developed under tight time constraints using real-time feedback to complete a circuit requiring a project budget and technical documentation produced concurrently.</p>
-                    <div class="project-tags">
-                        <span class="tag">Excel</span>
-                        <span class="tag">Arduino</span>
-                        <span class="tag">Multi-discipline</span>
+                    <div class="project-image">Project Image 3</div>
+                    <div class="project-content">
+                        <h3>Wall Following and Collision Detecting Rover</h3>
+                        <p>Autonomous driving system developed under tight time constraints using real-time feedback to complete a circuit requiring a project budget and technical documentation produced concurrently.</p>
+                        <div class="project-tags">
+                            <span class="tag">Excel</span>
+                            <span class="tag">Arduino</span>
+                            <span class="tag">Multi-discipline</span>
+                        </div>
+                        <span class="see-more">See More →</span>
                     </div>
-                    <span class="see-more">See More →</span>
                 </a>
                 
                 <a href="construction.html" class="project-card">
-                    <h3>Ratcheting Screwdriver</h3>
-                    <p>Personal Project to develop a 3D printed bi-directional ratcheting screwdriver with integrated excess bit storage</p>
-                    <div class="project-tags">
-                        <span class="tag">Fusion360</span>
-                        <span class="tag">PrusaSlicer</span>
+                    <div class="project-image">Project Image 4</div>
+                    <div class="project-content">
+                        <h3>Ratcheting Screwdriver</h3>
+                        <p>Personal Project to develop a 3D printed bi-directional ratcheting screwdriver with integrated excess bit storage</p>
+                        <div class="project-tags">
+                            <span class="tag">Fusion360</span>
+                            <span class="tag">PrusaSlicer</span>
+                        </div>
+                        <span class="see-more">See More →</span>
                     </div>
-                    <span class="see-more">See More →</span>
                 </a>
             </div>
         </div>
