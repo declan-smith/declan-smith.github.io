@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction - Declan Smith</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            transition: background 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #3498db;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mode-icon {
+            font-size: 1.2rem;
+            color: white;
+            transition: opacity 0.3s;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #3498db;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(26px);
+        }
+
+        .construction-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .construction-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .construction-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .construction-content h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .construction-content h2 {
+            color: #3498db;
+        }
+
+        .construction-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode .construction-content p {
+            color: #b0b0b0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: #2980b9;
+        }
+
+        #contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #90caf9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        footer h2 {
+            color: white;
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .construction-content h2 {
+                font-size: 2rem;
+            }
+
+            .construction-icon {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Declan Smith</h1>
+            <div class="nav-wrapper">
+                <a href="index.html" class="back-link">← Back to Portfolio</a>
+                <div class="dark-mode-toggle">
+                    <span class="mode-icon" id="modeIcon">🔆</span>
+                    <div class="toggle-switch" id="darkModeToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="construction-container">
+        <div class="construction-content">
+            <div class="construction-icon">🚧</div>
+            <h2>Under Construction</h2>
+            <p>This page is currently being built. Check back soon for updates on this project!</p>
+            <a href="index.html" class="back-button">Back to Portfolio</a>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-links">
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:declan.smith@unb.ca">declan.smith@unb.ca</a>
+                    </div>
+                    <div>
+                        <strong>LinkedIn:</strong><br>
+                        <a href="https://linkedin.com/in/declan-c-smith" target="_blank">linkedin.com/in/declan-c-smith</a>
+                    </div>
+                    <div>
+                        <strong>GitHub:</strong><br>
+                        <a href="https://github.com/declan-smith" target="_blank">github.com/declan-smith</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const modeIcon = document.getElementById('modeIcon');
+        const body = document.body;
+
+        // Check for saved dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.classList.add('active');
+            modeIcon.textContent = '🌙';
+        }
+
+        // Toggle dark mode when clicked
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            darkModeToggle.classList.toggle('active');
+            
+            // Update icon and save preference
+            if (body.classList.contains('dark-mode')) {
+                modeIcon.textContent = '🌙';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                modeIcon.textContent = '🔆';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>
