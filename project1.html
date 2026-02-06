@@ -380,22 +380,23 @@
         <div class="project-content">
             <div class="project-section">
                 <h2>Overview</h2>
-                <p>This project was developed for a competitive robotics challenge focusing on autonomous material handeling. The objective was to design and build a transporter capable of collecting fuel canisters and fuel deposits, autonomously storing deposits in canisters as they are collected. Once filled the transporter should be capable of unloading the canisters at a designated location.</p>
+                <p>This project was developed for a competitive robotics challenge focusing on autonomous material handeling. The objective was to design and build a transporter capable of collecting "fuel" canisters and "fuel" deposits, autonomously storing deposits in canisters as they are collected. Once filled the transporter needed to be capable of unloading the canisters at a designated location without the help of a second machine.</p>
                 <p>Transporters competed head to head to collect the limited canister and fuel deposit resources to determine the most efficient design.</p>
             </div>
 
             <div class="project-section">
                 <h2>Challenges</h2>
-                <p>Transporters could not exceed a maximum footprint of 20x20cm. This created a challenge to use space as efficiently as possible</p>
+                <p>Transporters could not exceed a maximum footprint of 20x20cm. This created a challenge to use space as efficiently as possible.</p>
+                <p>The provided hardware could be limiting as it only had 1 built in Quadratic Encoder Interface (QEI module) and a limited number of IO connections.</p>
             </div>
 
             <div class="project-section">
                 <h2>Approach</h2>
                 <p>The goal was to develop a transporter that autonomously handled as many functions as possible. This would allow the pilot to focus on driving the Transporter, avoiding competitors and collecting as many fuel canisters and deposits as possible.</p>
                 <ul>
-                    <li>Key decision or step 1</li>
-                    <li>Key decision or step 2</li>
-                    <li>Key decision or step 3</li>
+                    <li>The initial concern was picking up the "fuel" canisters. The team decided to leverage the fact that they were lined with steel tubes to experiment with magnets as a method of securing the cansiters to the transporter.</li>
+                    <li>To maximize efficiency a revolver style cylinder was implented becasue it was best suited to quickly picking up the maximum allowed number of fuel cansiters. This was accomplished by opening up the side of each hole to allow the "fuel" canister to be loaded from the side as opposed to the top.</li>
+                    <li>To drive the revolver the team wanted to use a N20-DC motor paired with a magnetic encoder. This would result in a high torque actuator similar to a servo but allow for "infinite" rotations and wrap around to improve the efficiency of the design. Using an actuator of this style added to the complexity of the design as it required QEI and PID to control its position reliably.</li>
                     <li>Key decision or step 4</li>
                 </ul>
             </div>
@@ -422,7 +423,8 @@
 
             <div class="project-section">
                 <h2>Lessons Learned</h2>
-                <p>Reflect on what you learned from this project. What would you do differently next time? What skills did you develop? This shows growth and self-awareness.</p>
+                <p>This project served as an introduction to Quadratic Encoder Interfaces, it was also a first exposure to dynamically adjusting controller gails to compensate for a system of changing inertia.</p>
+                <p>This project was also good exposure to C++ embedded coding and the use of seperate .c and .h files to seperate functions by abstract behaviours to maintain an organized main file.</p>
             </div>
 
             <div class="links-section">
