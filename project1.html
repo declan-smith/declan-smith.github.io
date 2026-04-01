@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Name - Declan Smith</title>
+    <title>Fuel Harvester Transporter - Declan Smith</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         * {
@@ -29,7 +30,7 @@
             background: #2c3e50;
             color: white;
             padding: 1.5rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header .container {
@@ -42,7 +43,7 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
         }
 
         .nav-wrapper {
@@ -70,7 +71,6 @@
         .mode-icon {
             font-size: 1.2rem;
             color: white;
-            transition: opacity 0.3s;
         }
 
         .toggle-switch {
@@ -108,28 +108,44 @@
             padding: 0 2rem;
         }
 
-        .project-header {
+        .project-hero {
             padding: 3rem 0 2rem;
         }
 
-        .project-header h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            transition: color 0.3s;
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
-        body.dark-mode .project-header h1 {
-            color: #3498db;
+        .project-title {
+            font-size: 2.7rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+        }
+
+        body.dark-mode .project-title {
+            color: #64b5f6;
+        }
+
+        .project-subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 1.25rem;
+            max-width: 60ch;
+        }
+
+        body.dark-mode .project-subtitle {
+            color: #c6c6c6;
         }
 
         .project-meta {
             display: flex;
-            gap: 2rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            gap: 1rem 2rem;
             color: #666;
-            transition: color 0.3s;
+            margin-bottom: 1rem;
         }
 
         body.dark-mode .project-meta {
@@ -140,16 +156,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .tag {
             background: #e3f2fd;
             color: #1976d2;
             padding: 0.4rem 1rem;
-            border-radius: 15px;
+            border-radius: 999px;
             font-size: 0.9rem;
-            transition: background 0.3s, color 0.3s;
         }
 
         body.dark-mode .tag {
@@ -157,126 +172,139 @@
             color: #64b5f6;
         }
 
-        .project-image {
-            width: 100%;
-            height: 400px;
+        .hero-media-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero-image {
             background: #f0f0f0;
-            border-radius: 10px;
-            margin-bottom: 3rem;
+            border-radius: 14px;
+            min-height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            transition: background 0.3s, color 0.3s;
+            text-align: center;
+            color: #888;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
         }
 
-        body.dark-mode .project-image {
-            background: #2a2a2a;
+        body.dark-mode .hero-image {
+            background: #252525;
+            color: #777;
+            border-color: #333;
+        }
+
+        .hero-side-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .hero-side-image {
+            min-height: 190px;
+        }
+
+        .caption {
+            font-size: 0.95rem;
             color: #666;
+            margin-top: 0.5rem;
         }
 
-        .project-content {
-            padding-bottom: 4rem;
+        body.dark-mode .caption {
+            color: #aaa;
         }
 
-        .project-section {
+        .summary-card,
+        .contribution-card,
+        .callout-box,
+        .image-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid #e8e8e8;
+        }
+
+        body.dark-mode .summary-card,
+        body.dark-mode .contribution-card,
+        body.dark-mode .callout-box,
+        body.dark-mode .image-card {
+            background: #242424;
+            border-color: #333;
+        }
+
+        .summary-card {
+            margin-bottom: 1rem;
+        }
+
+        .summary-card h3,
+        .contribution-card h3,
+        .section h2 {
+            color: #2c3e50;
+        }
+
+        body.dark-mode .summary-card h3,
+        body.dark-mode .contribution-card h3,
+        body.dark-mode .section h2 {
+            color: #64b5f6;
+        }
+
+        .summary-card p,
+        .contribution-card li,
+        .section p,
+        .section li {
+            font-size: 1.05rem;
+        }
+
+        .contribution-card ul,
+        .section ul {
+            margin-left: 1.25rem;
+            margin-top: 0.75rem;
+        }
+
+        .section {
             margin-bottom: 3rem;
         }
 
-        .project-section h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
+        .section h2 {
+            font-size: 1.75rem;
             margin-bottom: 1rem;
             border-bottom: 2px solid #3498db;
             padding-bottom: 0.5rem;
-            transition: color 0.3s;
         }
 
-        body.dark-mode .project-section h2 {
-            color: #3498db;
-        }
-
-        .project-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .project-section ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-section li {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .image-gallery {
+        .two-column {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
         }
 
-        .gallery-item {
-            width: 100%;
-            height: 250px;
-            background: #f0f0f0;
-            border-radius: 8px;
+        .image-card {
+            min-height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            transition: background 0.3s, color 0.3s;
+            color: #888;
+            text-align: center;
         }
 
-        body.dark-mode .gallery-item {
-            background: #2a2a2a;
-            color: #666;
-        }
-
-        .links-section {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 3rem;
-            transition: background 0.3s;
-        }
-
-        body.dark-mode .links-section {
-            background: #242424;
-        }
-
-        .links-section h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            transition: color 0.3s;
-        }
-
-        body.dark-mode .links-section h3 {
-            color: #3498db;
-        }
-
-        .project-links {
-            display: flex;
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            flex-wrap: wrap;
         }
 
-        .project-link {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+        .callout-box strong {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: #2c3e50;
         }
 
-        .project-link:hover {
-            background: #2980b9;
+        body.dark-mode .callout-box strong {
+            color: #fff;
         }
 
         #contact {
@@ -284,22 +312,6 @@
             color: white;
             text-align: center;
             padding: 3rem 0;
-            margin-top: 0;
-        }
-
-        .contact-info {
-            margin-top: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .contact-info a {
-            color: #64b5f6;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-            color: #90caf9;
         }
 
         .contact-links {
@@ -310,18 +322,27 @@
             flex-wrap: wrap;
         }
 
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 0;
-            margin-top: 0;
+        .contact-links a {
+            color: #64b5f6;
+            text-decoration: none;
         }
 
-        footer h2 {
-            color: white;
-            border: none;
-            margin-bottom: 1rem;
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+
+            .hero-layout,
+            .two-column,
+            .process-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-side-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -335,12 +356,13 @@
                 gap: 1rem;
             }
 
-            .project-header h1 {
-                font-size: 2rem;
+            .project-title {
+                font-size: 2.1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -357,103 +379,276 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="project-header">
-            <h1>Mechatronics Applications Project</h1>
-            <div class="project-meta">
-                <span><strong>Date:</strong> September 2026</span>
-                <span><strong>Role:</strong> Co-lead</span>
-                <span><strong>Duration:</strong> 4 months</span>
-            </div>
-            <div class="project-tags">
-                <span class="tag">Fusion 360</span>
-                <span class="tag">Embedded C++</span>
-                <span class="tag">QEI</span>
-                <span class="tag">PID</span>
-            </div>
-        </div>
+    <main class="container">
+        <section class="project-hero">
+            <div class="hero-layout">
+                <div>
+                    <h1 class="project-title">Fuel Harvester Transporter</h1>
+                    <p class="project-subtitle">
+                        Compact competition robot designed to collect canisters and fuel deposits,
+                        automate storage, and unload filled canisters at home base with minimal pilot input.
+                    </p>
 
-        <div class="project-image">
-            Main Project Image or Demo
-        </div>
+                    <div class="project-meta">
+                        <span><strong>Date:</strong> September 2025 </span>
+                        <span><strong>Role:</strong> Lead contributor / primary system designer</span>
+                        <span><strong>Duration:</strong> 4-month project</span>
+                        <span><strong>Type:</strong> Competitive mechatronics system</span>
+                    </div>
 
-        <div class="project-content">
-            <div class="project-section">
-                <h2>Overview</h2>
-                <p>This project was developed for a competitive robotics challenge focusing on autonomous material handeling. The objective was to design and build a transporter capable of collecting "fuel" canisters and "fuel" deposits, autonomously storing deposits in canisters as they are collected. Once filled the transporter needed to be capable of unloading the canisters at a designated location without the help of a second machine.</p>
-                <p>Transporters competed head to head to collect the limited canister and fuel deposit resources to determine the most efficient design.</p>
-            </div>
+                    <div class="project-tags">
+                        <span class="tag">Fusion 360</span>
+                        <span class="tag">Embedded C</span>
+                        <span class="tag">dsPIC33CK</span>
+                        <span class="tag">nRF52833</span>
+                        <span class="tag">UART</span>
+                        <span class="tag">PID Control</span>
+                        <span class="tag">QEI</span>
+                        <span class="tag">Custom Mecanum Wheels</span>
+                        <span class="tag">3D Printing</span>
+                    </div>
 
-            <div class="project-section">
-                <h2>Challenges</h2>
-                <p>Transporters could not exceed a maximum footprint of 20x20cm. This created a challenge to use space as efficiently as possible.</p>
-                <p>The provided hardware could be limiting as it only had 1 built in Quadratic Encoder Interface (QEI module) and a limited number of IO connections.</p>
-            </div>
+                    <div class="summary-card">
+                        <h3>Why this project matters</h3>
+                        <p>
+                            This project brought together compact mechanical packaging, custom wheel design,
+                            embedded control, and subsystem automation in a single competitive robot. Comprised of
+                            technical work, including system design, integration, implementation, and refinement
+                            . The final transporter combined a six-slot
+                            magnetic revolver, vertical conveyor, custom narrow mecanum wheels, and an unloading
+                            arm into one space-constrained platform designed to reduce pilot workload and improve
+                            scoring speed.
+                        </p>
+                    </div>
 
-            <div class="project-section">
-                <h2>Approach</h2>
-                <p>The goal was to develop a transporter that autonomously handled as many functions as possible. This would allow the pilot to focus on driving the Transporter, avoiding competitors and collecting as many fuel canisters and deposits as possible.</p>
-                <ul>
-                    <li>The initial concern was picking up the "fuel" canisters. The team decided to leverage the fact that they were lined with steel tubes to experiment with magnets as a method of securing the cansiters to the transporter.</li>
-                    <li>To maximize efficiency a revolver style cylinder was implented becasue it was best suited to quickly picking up the maximum allowed number of fuel cansiters. This was accomplished by opening up the side of each hole to allow the "fuel" canister to be loaded from the side as opposed to the top.</li>
-                    <li>To drive the revolver the team wanted to use a N20-DC motor paired with a magnetic encoder. This would result in a high torque actuator similar to a servo but allow for "infinite" rotations and wrap around to improve the efficiency of the design. Using an actuator of this style added to the complexity of the design as it required QEI and PID to control its position reliably.</li>
-                </ul>
-            </div>
+                    <div class="contribution-card">
+                        <h3>Primary Contributions</h3>
+                        <ul>
+                            <li>Led the overall system design, packaging, and subsystem integration of the transporter
+                            </li>
+                            <li>Drove the design and iteration of the major mechanical systems, including the revolver,
+                                unloading system, and wheel packaging</li>
+                            <li>Developed the encoder-based closed-loop control approach for the revolver and unloading
+                                arm</li>
+                            <li>Implemented and refined embedded communication and subsystem coordination logic</li>
+                            <li>Carried the majority of debugging, testing, redesign, and final competition-readiness
+                                work</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="project-section">
-                <h2>Technical Implementation</h2>
-                <p>Using a Microchip dsPIC33ck and a Nordic nRF52833 communicating over UART the team implemented a number of systems.</p>
-                <p>QEI.</p>
-            </div>
+                <div class="hero-media-column">
+                    <div>
+                        <img src="Transporter.png" alt="Finished transporter" class="hero-image"
+                            style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                        <p class="caption">Finished transporter</p>
+                    </div>
 
-            <div class="project-section">
-                <h2>Results</h2>
-                <p>The transporter averaged a score that was 5-10 times more than that of the runner up, proving the methods, systems, and controls implemented were extremely efficient.</p>
-            </div>
-
-            <div class="project-section">
-                <h2>Gallery</h2>
-                <div class="image-gallery">
-                    <div class="gallery-item">Image 1</div>
-                    <div class="gallery-item">Image 2</div>
-                    <div class="gallery-item">Image 3</div>
+                    <div class="hero-side-gallery">
+                        <div>
+                            <img src="RevolverAssembly.png" alt="CAD render - full assembly"
+                                class="image-card hero-side-image"
+                                style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                            <p class="caption">Revolver assembly CAD</p>
+                        </div>
+                        <div>
+                            <img src="RevolverAssemblyCutAway.png" alt="Revolver/wheel/conveyor close-up"
+                                class="image-card hero-side-image"
+                                style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                            <p class="caption">Revolver close-up showing planetary gearbox reduction mechanism</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-section">
-                <h2>Lessons Learned</h2>
-                <p>This project served as an introduction to Quadratic Encoder Interfaces, it was also a first exposure to dynamically adjusting controller gains to compensate for a system of changing inertia.</p>
-                <p>This project was also good exposure to C++ embedded coding and the use of seperate .c and .h files to seperate functions by abstract behaviours to maintain an organized main file.</p>
-            </div>
+        </section>
 
-            <div class="links-section">
-                <h3>Project Links</h3>
-                <div class="project-links">
-                    <a href="#" class="project-link">View on GitHub</a>
-                    <a href="#" class="project-link">Live Demo</a>
-                    <a href="#" class="project-link">Documentation</a>
+        <section class="section">
+            <h2>What I Learned</h2>
+            <p>
+                This project reinforced that subsystem performance is not enough on its own. Packaging, tolerances,
+                sequencing, controls, wiring, and operator interaction all decide whether the full machine works.
+                It was also a strong lesson in when to simplify: reliable systems beat fragile clever ones, and
+                good engineering often comes from making constrained hardware do more than it was originally meant to
+                do.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>System Layout</h2>
+            <div class="two-column">
+                <div>
+                    <p>
+                        The transporter was developed around a vertical conveyor for fuel deposit collection,
+                        a six-slot magnetic revolver for canister storage, a lifting mechanism to raise the
+                        revolver, and a linear removal arm to unload filled canisters at home base. The
+                        design aimed to minimize the precision required from the operator by letting the mechanisms
+                        capture,
+                        guide, and index game pieces automatically.
+                    </p>
+                    <p>
+                        Mobility came from a set of custom narrow mecanum wheels designed specifically to fit
+                        within the transporter’s dimensional constraints without compromising the surrounding
+                        subsystems. That custom wheel design preserved full planar motion while still fitting
+                        the tight packaging of the chassis.
+                    </p>
+                </div>
+                <div>
+                    <img src="CanisterRemovalArmAssembly.png" alt="Full assembly CAD screenshot" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Canister removal arm assembly</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Mechanisms</h2>
+            <div class="process-grid">
+                <div>
+                    <img src="TransporterRevolver.png" alt="Six-slot magnetic revolver" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Six-slot magnetic revolver for rapid canister pickup and indexing</p>
+                </div>
+                <div>
+                    <img src="TransporterConveyor.png" alt="Vertical conveyor" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Vertical conveyor for controlled one-at-a-time fuel deposit collection</p>
+                </div>
+                <div>
+                    <img src="TransporterArm.png" alt="Unloading arm" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Rack-and-pinion unloading arm with encoder-based extension control</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Engineering Decisions</h2>
+            <div class="two-column">
+                <div>
+                    <p>
+                        A rotary canister system was selected over robotic arm and linear alternatives because
+                        it offered better reliability, simpler control, and compact six-canister storage within
+                        the packaging limits. Magnets in the revolver bays allowed canisters to be collected
+                        simply by driving into position.
+                    </p>
+                    <p>
+                        For fuel deposits, the conveyor approach beat other concepts because it was space-efficient,
+                        mechanically simpler, and easier to control reliably than a robotic arm or drum-style collector.
+                    </p>
+                </div>
+                <div>
+                    <div class="callout-box">
+                        <strong>Main design philosophy</strong>
+                        The project consistently favored compact, reliable mechanisms leveraging more ambitious ideas
+                        that implemented sensing, embedded control and, consumed less space.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Controls and Embedded Work</h2>
+            <div class="two-column">
+                <div>
+                    <p>
+                        The embedded control approach covered subsystem coordination, input handling,
+                        communication, and position-based actuation. Both the
+                        revolver and the unloading arm used PID-based closed-loop position control,
+                        allowing repeatable indexing, extension, and mechanism sequencing under tight
+                        packaging and hardware constraints.
+                    </p>
+                    <p>
+                        One unusual control challenge was implementing closed-loop control for two separate
+                        motors using a single quadrature encoder interface resource. That forced careful
+                        sharing of encoder feedback and control infrastructure between the revolver and arm
+                        subsystems as dedicating separate hardware was not available for each axis.
+                    </p>
+                    <p>
+                        The drive system also required nontrivial software. Joystick inputs were converted
+                        into planar mecanum motion using coordinate conversion and wheel-level power calculations,
+                        allowing translation and rotation control of the transporter. UART communication was also
+                        revised multiple times to reduce startup delay, improve message handling, and reliably
+                        pass user, motor, and servo commands between controllers.
+                    </p>
+                </div>
+                <div>
+                    <img src="TransporterWiring.png" alt="Wiring and electronics" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Wiring and electronics</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Iteration and Debugging</h2>
+            <div class="two-column">
+                <div>
+                    <p>
+                        A large portion of the project effort went into iterative debugging and integration.
+                        Wheel-to-motor interference forced a chassis
+                        redesign. Revolver tolerances had to be corrected. Conveyor geometry was split into
+                        smaller parts to speed up prototyping. Wiring had to be reworked to prevent wheel snagging
+                        and improve reliability.
+                    </p>
+                    <p>
+                        The colour sensor concept also looked good on paper but failed in practice. It could not
+                        reliably distinguish the two ball colours, so the strategy was changed to sequential filling
+                        with manual operator sorting. That was the right move because it was faster and more dependable.
+                    </p>
+                    <p>
+                        The control system had to be refined alongside the mechanics. Sharing one QEI resource
+                        across two PID-controlled motors added complexity to sequencing, feedback handling, and testing,
+                        but it made the final design more capable without expanding the hardware footprint.
+                    </p>
+                </div>
+                <div>
+                    <img src="TransporterRear.png" alt="Early prototype / redesign" class="image-card"
+                        style="width: 100%; height: auto; object-fit: cover; border: none; padding: 0; background: transparent;">
+                    <p class="caption">Revolver tolerance required a chassis redesign to allow it to spin freely</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Results</h2>
+            <div class="two-column">
+                <div>
+                    <div class="callout-box">
+                        <strong>Competition outcome</strong>
+                        The final machine was capable of depositing 120 points worth of canisters and balls
+                        with time to spare. This result was roughly 7 times better than the competition.
+                    </div>
+                    <div class="callout-box" style="margin-top: 1rem;">
+                        <strong>Most effective subsystems</strong>
+                        The conveyor proved to be the most reliable major mechanism, while the magnetic revolver
+                        gave the transporter a major speed advantage in canister collection.
+                    </div>
+                </div>
+                <div>
+                    <div class="image-card">Competition photo, demo image, or short GIF/video thumbnail</div>
+                    <p class="caption">Use your strongest “it actually worked” image here</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-links">
-                    <div>
-                        <strong>Email:</strong><br>
-                        <a href="mailto:declan.smith@unb.ca">declan.smith@unb.ca</a>
-                    </div>
-                    <div>
-                        <strong>LinkedIn:</strong><br>
-                        <a href="https://linkedin.com/in/declan-c-smith" target="_blank">linkedin.com/in/declan-c-smith</a>
-                    </div>
-                    <div>
-                        <strong>GitHub:</strong><br>
-                        <a href="https://github.com/declan-smith" target="_blank">github.com/declan-smith</a>
-                    </div>
+            <div class="contact-links">
+                <div>
+                    <strong>Email:</strong><br>
+                    <a href="mailto:declan.smith@unb.ca">declan.smith@unb.ca</a>
+                </div>
+                <div>
+                    <strong>LinkedIn:</strong><br>
+                    <a href="https://linkedin.com/in/declan-c-smith" target="_blank">linkedin.com/in/declan-c-smith</a>
+                </div>
+                <div>
+                    <strong>GitHub:</strong><br>
+                    <a href="https://github.com/declan-smith" target="_blank">github.com/declan-smith</a>
                 </div>
             </div>
         </div>
@@ -464,19 +659,16 @@
         const modeIcon = document.getElementById('modeIcon');
         const body = document.body;
 
-        // Check for saved dark mode preference on page load
         if (localStorage.getItem('darkMode') === 'enabled') {
             body.classList.add('dark-mode');
             darkModeToggle.classList.add('active');
             modeIcon.textContent = '🌙';
         }
 
-        // Toggle dark mode when clicked
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             darkModeToggle.classList.toggle('active');
-            
-            // Update icon and save preference
+
             if (body.classList.contains('dark-mode')) {
                 modeIcon.textContent = '🌙';
                 localStorage.setItem('darkMode', 'enabled');
@@ -487,4 +679,5 @@
         });
     </script>
 </body>
+
 </html>
